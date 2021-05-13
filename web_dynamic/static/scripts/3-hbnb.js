@@ -1,3 +1,6 @@
+// const host = 'localhost';
+const host = '0.0.0.0';
+
 const checkAmenities = function () {
   const checkedAmenities = {};
   let displayAmenities = [];
@@ -13,7 +16,7 @@ const checkAmenities = function () {
 };
 
 const checkApiStatus = function () {
-  $.getJSON('http://localhost:5001/api/v1/status', (data) => {
+  $.getJSON(`http://${host}:5001/api/v1/status`, (data) => {
     if (data.status === 'OK') {
       $('div#api_status').addClass('available');
     } else {
@@ -24,7 +27,7 @@ const checkApiStatus = function () {
 
 const fetchPlaces = function () {
   $.ajax({
-    url: 'http://localhost:5001/api/v1/places_search',
+    url: `http://${host}:5001/api/v1/places_search`,
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify({}),
