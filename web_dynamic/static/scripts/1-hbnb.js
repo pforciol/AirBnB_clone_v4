@@ -8,7 +8,10 @@ $(() => {
       delete checkedAmenities[$(this).attr('data-id')];
     }
     displayAmenities = Object.values(checkedAmenities).sort();
-    $('.amenities h4').text(displayAmenities.join(', '));
+    if (displayAmenities.length != 0)
+      $('.amenities h4').text(displayAmenities.join(', '));
+    else
+      $('.amenities h4').html("&nbsp;");
 
     // console.log(checkedAmenities);
   });
